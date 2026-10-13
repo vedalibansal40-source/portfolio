@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedali Bansal | Portfolio</title>
+  <meta name="description" content="Portfolio of Vedali Bansal, an aspiring software engineer studying Computer Science and AI at Scaler School of Technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e7;
+      --paper: #fffaf1;
+      --olive: #6b7650;
+      --olive-dark: #414b31;
+      --ink: #25271f;
+      --muted: #6e7066;
+      --line: #ded8c9;
+      --dark: #22261d;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #e7e1d5;
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .stage {
+      width: min(1160px, calc(100% - 32px));
+      margin: 24px auto;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+      padding: clamp(24px, 5vw, 64px);
+      border-radius: 5px;
+    }
+
+    .cream {
+      background: var(--cream);
+    }
+
+    .olive {
+      background: #dfe3d2;
+    }
+
+    .dark {
+      background: var(--dark);
+      color: #f8f3e9;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: clamp(42px, 7vw, 82px);
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1.05;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 1.12rem;
+    }
+
+    .brand-name i {
+      color: var(--olive);
+      font-style: normal;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      margin-top: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--olive-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 19px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: var(--olive-dark);
+    }
+
+    .btn-line {
+      background: transparent;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--olive-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.12;
+    }
+
+    h1, .big {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin-bottom: 22px;
+      font-size: clamp(3rem, 7vw, 6.3rem);
+    }
+
+    h1 em, .big em {
+      color: var(--olive);
+      font-weight: 500;
+    }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-grid,
+    .edu-grid,
+    .cta-grid,
+    .contact-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(28px, 5vw, 68px);
+    }
+
+    .hero-grid > div:first-child,
+    .edu-grid > div,
+    .cta-grid > div,
+    .contact-grid > div {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .arch-wrap {
+      flex: 0 1 330px;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .arch {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: min(100%, 310px);
+      aspect-ratio: 4 / 5;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 160px 160px 8px 8px;
+      background: linear-gradient(145deg, #c8cdb8, #aab393);
+      border: 1px solid #a3ac8d;
+    }
+
+    .initials {
+      font-family: var(--serif);
+      font-size: 5rem;
+      color: var(--olive-dark);
+    }
+
+    .arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .float-card {
+      display: inline-block;
+      max-width: 250px;
+      padding: 12px 18px;
+      margin-top: -10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 70px;
+      height: 125px;
+      color: #9ca886;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-leaf {
+      top: 150px;
+      right: 20px;
+    }
+
+    .cta-leaf {
+      right: 20px;
+      bottom: 8px;
+    }
+
+    .big {
+      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 5vw, 4.3rem);
+    }
+
+    .edu-card {
+      padding: 28px;
+      background: rgba(255, 250, 241, 0.75);
+      border: 1px solid #c8ceb9;
+      border-radius: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-bottom: 15px;
+      border-radius: 99px;
+      background: #e7e9df;
+      color: var(--olive-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .edu-card h3 {
+      margin-bottom: 10px;
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .center-head {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1 1 160px;
+      padding: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--olive);
+      color: white;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+      font-family: var(--serif);
+      font-size: 1.65rem;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .cta-grid {
+      position: relative;
+    }
+
+    .cta-grid .arch-wrap {
+      flex-basis: 220px;
+    }
+
+    .cta-grid .arch {
+      width: min(100%, 210px);
+      aspect-ratio: 4 / 5;
+    }
+
+    .cta-grid .big {
+      max-width: 600px;
+    }
+
+    .btn-light {
+      background: var(--cream);
+      color: var(--ink);
+      border-color: var(--cream);
+    }
+
+    .btn-outline-light {
+      border-color: #d9dfcb;
+      color: #f8f3e9;
+    }
+
+    .footer {
+      padding-bottom: 24px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-grid > div {
+      flex: 1 1 170px;
+    }
+
+    .footer .brand-name i {
+      color: #b8c59c;
+    }
+
+    .footer .tag {
+      margin-top: 20px;
+      background: #343a2e;
+      color: #dce2d1;
+    }
+
+    .footer h4 {
+      margin-bottom: 14px;
+      color: #d1d9bd;
+      font-size: 0.9rem;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer li {
+      margin-bottom: 7px;
+      color: #d2d0c7;
+      font-size: 0.86rem;
+      overflow-wrap: anywhere;
+    }
+
+    .footer a {
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #c5d1a9;
+    }
+
+    .copyright {
+      padding-top: 20px;
+      margin-top: 28px;
+      border-top: 1px solid #45483e;
+      color: #b5b6ac;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+
+    /* Project showcase */
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex: 1 1 280px;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+    }
+
+    .project-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      min-height: 210px;
+      padding: 18px;
+      background: #101b2a;
+      color: #f4f8fb;
+    }
+
+    .preview-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2b4053;
+      color: #77e0bd;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .preview-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .preview-stats span {
+      padding: 5px 7px;
+      border: 1px solid #2b4053;
+      border-radius: 5px;
+      color: #dce6ef;
+      font-size: 0.7rem;
+    }
+
+    .preview-scene {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+      min-height: 74px;
+      padding: 12px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #b5e5e5, #75bca6);
+    }
+
+    .preview-player,
+    .preview-star,
+    .preview-platform {
+      display: inline-block;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .preview-player {
+      background: #5a83db;
+      color: white;
+    }
+
+    .preview-star {
+      background: #ffd66b;
+      color: #49370a;
+    }
+
+    .preview-platform {
+      background: #65bd8e;
+      color: #123a31;
+    }
+
+    .project-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 10px;
+      font-family: var(--serif);
+      font-size: 1.9rem;
+    }
+
+    .project-content p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .project-tags span {
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--olive-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .project-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-list {
+      margin-top: 26px;
+      list-style: none;
+    }
+
+    .contact-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 15px 0;
+      border-bottom: 1px solid #c8ceb9;
+    }
+
+    .contact-list strong {
+      color: var(--olive-dark);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-list a {
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: clamp(20px, 3vw, 32px);
+      background: var(--cream);
+      border: 1px solid #c8ceb9;
+      border-radius: 4px;
+    }
+
+    .card label {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .card input,
+    .card textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #c8ceb9;
+      border-radius: 3px;
+      background: #fffdf8;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .card textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .card button {
+      align-self: flex-start;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5rem);
+    }
+
+    @media (max-width: 760px) {
+      .stage {
+        width: min(100% - 20px, 600px);
+        margin: 10px auto;
+      }
+
+      .panel {
+        padding: 25px 20px;
+      }
+
+      .topbar {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 42px;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .hero-grid,
+      .edu-grid,
+      .cta-grid,
+      .contact-grid {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-grid {
+        text-align: center;
+      }
+
+      .hero-grid .btn-row {
+        justify-content: center;
+      }
+
+      .arch-wrap {
+        flex-basis: auto;
+      }
+
+      .arch {
+        max-width: 250px;
+      }
+
+      .hero-leaf {
+        top: 125px;
+        right: 0;
+      }
+
+      .cta-grid .arch-wrap {
+        display: none;
+      }
+
+      .steps {
+        gap: 8px;
+      }
+
+      .step {
+        flex-basis: 40%;
+      }
+
+      .footer-grid {
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .topbar > .btn {
+        width: 100%;
+        max-width: 220px;
+      }
+
+      .brand {
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .step {
+        flex-basis: 100%;
+      }
+
+      .btn-row .btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <section class="panel cream hero" id="home">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Vedali Bansal, home">
+          <span class="brand-name">VEDALI <i>✦</i></span>
+          <span class="brand-sub">BANSAL</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#home" aria-current="page">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-dark" href="#contact">Let's Talk &rarr;</a>
+      </header>
+
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Aspiring software engineer</p>
+          <h1>Hello, I'm Vedali. I love turning ideas into <em>code.</em></h1>
+          <p class="lead">I'm a hardworking, curious and enthusiastic learner studying Computer Science and AI at Scaler School of Technology. I'm exploring technology, building projects and learning how to solve real-world problems.</p>
+          <div class="btn-row">
+            <a class="btn btn-dark" href="#contact">Get in touch</a>
+            <a class="btn btn-line" href="https://github.com/vedalibansal40-source" target="_blank" rel="noopener noreferrer">Explore my GitHub &rarr;</a>
+          </div>
+        </div>
+
+        <div class="arch-wrap">
+          <div class="arch">
+            <span class="initials" aria-hidden="true">VB</span>
+            <img src="images/photo.jpg" alt="Portrait of Vedali Bansal" onerror="this.remove()">
+          </div>
+          <div class="float-card">Learning in public, one commit at a time.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel olive" id="about">
+      <div class="edu-grid">
+        <div>
+          <p class="eyebrow">A little about me</p>
+          <h2 class="big">Curious by nature. <em>Always learning.</em></h2>
+          <p>I'm passionate about technology and solving real-world problems. I enjoy exploring new ideas, understanding how things work, and gradually turning what I learn into practical projects.</p>
+        </div>
+        <div class="edu-card">
+          <span class="tag">Currently studying</span>
+          <h3>Scaler School of Technology</h3>
+          <p>Computer Science &amp; Artificial Intelligence</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel cream" id="learning">
+      <div class="center-head">
+        <p class="eyebrow">My process</p>
+        <h2 class="big">How I <em>learn.</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="circle">1</div>
+          <h3>Explore</h3>
+          <p>Follow my curiosity and try new ideas.</p>
+        </div>
+        <div class="step">
+          <div class="circle">2</div>
+          <h3>Build</h3>
+          <p>Turn what I learn into small projects.</p>
+        </div>
+        <div class="step">
+          <div class="circle">3</div>
+          <h3>Improve</h3>
+          <p>Learn from mistakes and keep refining my work.</p>
+        </div>
+        <div class="step">
+          <div class="circle">4</div>
+          <h3>Share</h3>
+          <p>Track and share my code on GitHub.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="panel cream" id="projects">
+      <div class="center-head">
+        <p class="eyebrow">What I've been building</p>
+        <h2 class="big">A project I'm <em>proud of.</em></h2>
+        <p class="project-note">Small projects are how I practise new concepts and turn learning into something visible.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-preview" aria-label="Visual preview of the Flexbox Quest game interface">
+            <div class="preview-top">
+              <span>✦ FLEXBOX QUEST</span>
+              <span>LEVEL 01</span>
+            </div>
+            <div class="preview-stats">
+              <span>♥ Lives: 3</span>
+              <span>● Coins: 120</span>
+              <span>✧ Score: 1250</span>
+            </div>
+            <div class="preview-scene">
+              <span class="preview-player">PLAYER</span>
+              <span class="preview-star">★ STAR</span>
+            </div>
+            <div class="preview-scene" style="min-height: 42px; background: #dfe3d2;">
+              <span class="preview-platform">PLATFORM</span>
+              <span class="preview-platform">PLATFORM</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <p class="eyebrow">HTML · CSS · Flexbox</p>
+            <h3>Flexbox Quest</h3>
+            <p>A mini-game interface designed to practise Flexbox layout, alignment, spacing, responsive panels, and the CSS box model. It includes a game scene, controls, inventory, and a quest log.</p>
+            <div class="project-tags">
+              <span>Responsive design</span>
+              <span>Flexbox</span>
+              <span>CSS styling</span>
+              <span>Beginner project</span>
+            </div>
+            <a class="btn btn-dark" href="https://github.com/vedalibansal40-source" target="_blank" rel="noopener noreferrer">Explore my GitHub &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel olive" id="contact">
+      <div class="cta-grid">
+        <div class="arch-wrap">
+          <div class="arch">
+            <span class="initials" aria-hidden="true">VB</span>
+            <img src="images/photo.jpg" alt="Portrait of Vedali Bansal" onerror="this.remove()">
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Let's connect</p>
+          <h2 class="big">Let's build something <em>meaningful</em> together.</h2>
+          <p>Have an opportunity, an idea or a question? I'd love to hear from you.</p>
+          <div class="btn-row">
+            <a class="btn btn-dark" href="mailto:vedali.26bcs10832@sst.scaler.com">Email me &rarr;</a>
+            <a class="btn btn-line" href="https://linkedin.com/in/vedali-bansal-297781443/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-line" href="https://github.com/vedalibansal40-source" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="panel dark footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#home">
+            <span class="brand-name">VEDALI <i>✦</i></span>
+            <span class="brand-sub">BANSAL</span>
+          </a>
+          <p class="tag">Curious. Hardworking. Always learning.</p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Skills I'm learning</h4>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Git</li>
+            <li>GitHub</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Let's connect</h4>
+          <ul>
+            <li><a href="mailto:vedali.26bcs10832@sst.scaler.com">vedali.26bcs10832@sst.scaler.com</a></li>
+            <li><a href="https://github.com/vedalibansal40-source" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/vedali-bansal-297781443/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Vedali Bansal. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
